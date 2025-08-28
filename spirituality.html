@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spirituality - Bhagavad Gita</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fdf6e3;
+      color: #333;
+      margin: 0;
+      padding: 30px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header {
+      background-color: #0b3d91;
+      color: #fff;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+      letter-spacing: 2px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(11, 61, 145, 0.3);
+    }
+    nav {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    nav a {
+      color: #0b3d91;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 15px;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #06306b;
+      text-decoration: underline;
+    }
+    #gita-title {
+      display: inline-block;
+      padding: 15px 30px;
+      background: #e0d4b7;
+      color: #5b4627;
+      font-size: 24px;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 12px;
+      box-shadow: 0 3px 6px rgba(91, 70, 39, 0.4);
+      user-select: none;
+      transition: background-color 0.3s ease;
+      margin-bottom: 30px;
+    }
+    #gita-title:hover {
+      background: #d4c393;
+    }
+    #chapter-content {
+      background: #fff8dc;
+      border-radius: 10px;
+      padding: 25px 30px;
+      box-shadow: 0 3px 12px rgba(166, 124, 0, 0.15);
+      font-size: 18px;
+      line-height: 1.7;
+      color: #5b4627;
+      min-height: 200px;
+      white-space: pre-wrap;
+      margin-bottom: 30px;
+      transition: opacity 0.3s ease;
+    }
+    #chapters {
+      display: none;
+      border-left: 4px solid #a67c00;
+      padding-left: 20px;
+      font-family: 'Georgia', serif;
+      color: #5b4627;
+      max-height: 400px;
+      overflow-y: auto;
+      margin-bottom: 30px;
+    }
+    #chapters button {
+      background-color: transparent;
+      border: none;
+      color: #5b4627;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 10px 0;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      transition: color 0.25s ease;
+    }
+    #chapters button:hover {
+      color: #a67c00;
+      text-decoration: underline;
+    }
+    #chapters button.active {
+      font-weight: bold;
+      color: #a67c00;
+    }
+    .shloka {
+      font-family: 'Noto Serif Devanagari', serif;
+      font-size: 22px;
+      color: #3b2e1e;
+      margin-top: 15px;
+      font-weight: 700;
+    }
+    .meaning {
+      font-size: 16px;
+      margin-top: 8px;
+      color: #5b4627;
+      font-style: italic;
+    }
+    .explanation {
+      font-size: 16px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      color: #4a3c1a;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<header>Spirituality</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="education.html">Education</a>
+  <a href="exploreindia.html">Explore India</a>
+  <a href="spirituality.html">Spirituality</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div id="gita-title" tabindex="0" role="button" aria-pressed="false" aria-label="Open Bhagavad Gita Chapters">
+  Bhagavad Gita
+</div>
+
+<div id="chapters" aria-live="polite" aria-label="Bhagavad Gita Chapters List">
+  <!-- Chapter buttons inserted here -->
+</div>
+
+<div id="chapter-content" aria-live="polite" aria-atomic="true">
+  <p>Select a chapter to read its summary.</p>
+</div>
+
+<script>
+  const gitaTitle = document.getElementById('gita-title');
+  const chaptersDiv = document.getElementById('chapters');
+  const contentDiv = document.getElementById('chapter-content');
+
+  const chapters = [
+    {
+      number: 1,
+      title: "Arjuna’s Despair",
+      content: `
+<div>
+  <div class="shloka">धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः |<br>मामकाः पाण्डवाश्चैव किमकुर्वत सञ्जय || 1 ||</div>
+  <div class="meaning">धर्मभूमि कुरुक्षेत्र में, एकत्रित होकर, मेरी और पाण्डुओं की सेना युद्ध के लिए तैयार है। हे संजय, उन्होंने क्या किया?</div>
+  <div class="explanation">यह श्लोक युद्ध के मैदान कुरुक्षेत्र का परिचय देता है जहाँ दो सेनाएँ आमने-सामने हैं। अर्जुन की दुविधा यहाँ से शुरू होती है।</div>
+
+  <div class="shloka">सञ्जय उवाच |<br>दृष्ट्वा तु पाण्डवानीकं व्यूढं दुर्योधनस्तदा |<br>आचार्यमुपसंगम्य राजा वचनमब्रवीत् || 2 ||</div>
+  <div class="meaning">संजय ने कहा: तब दुर्योधन ने पाण्डुओं की सेना को व्यवस्थित देखकर अपने गुरु से कहा।</div>
+  <div class="explanation">दुर्योधन की चिंता और उसकी प्रतिक्रिया युद्ध की शुरुआत को दर्शाती है।</div>
+</div>
+      `
+    },
+    {
+      number: 2,
+      title: "The Yoga of Knowledge",
+      content: `
+<div>
+  <div class="shloka">श्रीभगवानुवाच |<br>कुतस्त्वा कश्मलमिदं विषमे समुपस्थितम् |<br>अनार्यजुष्टमस्वर्ग्यमकीर्तिकरमर्जुन || 2-2 ||</div>
+  <div class="meaning">श्री भगवान बोले: हे अर्जुन! यह दुर्बलता और हताशा तुम्हारे मन में क्यों आई? यह असामाजिक और स्वर्गप्राप्ति के योग्य न होने वाली बात है।</div>
+  <div class="explanation">यहाँ कृष्ण अर्जुन की मानसिक स्थिति को समझाते हुए उसे युद्ध करने के लिए प्रोत्साहित करते हैं।</div>
+
+  <div class="shloka">सञ्जय उवाच |<br>मम पत्रं दृष्ट्वा तं तं विष्णोर्नाम सवर्णगुणः |<br>धर्मोऽनुष्ठेय इति तत्त्वं न हि संदेहः || 2-3 ||</div>
+  <div class="meaning">कृष्ण का नाम सुनकर तथा उनका पत्र देखकर, सारे गुण ज्ञात होते हैं, और धर्म का पालन करना आवश्यक है, इसमें कोई संदेह नहीं।</div>
+  <div class="explanation">यह श्लोक भगवान कृष्ण के गुणों और धर्म के पालन की महत्ता को बताता है।</div>
+</div>
+      `
+    },
+    // Placeholder for rest of chapters
+    {number: 3, title: "The Yoga of Action", content: "<p>Chapter 3 content coming soon...</p>"},
+    {number: 4, title: "The Yoga of Knowledge and the Disciplines of Action", content: "<p>Chapter 4 content coming soon...</p>"},
+    {number: 5, title: "The Yoga of Renunciation", content: "<p>Chapter 5 content coming soon...</p>"},
+    {number: 6, title: "The Yoga of Meditation", content: "<p>Chapter 6 content coming soon...</p>"},
+    {number: 7, title: "Knowledge of the Ultimate Reality", content: "<p>Chapter 7 content coming soon...</p>"},
+    {number: 8, title: "The Imperishable Brahman", content: "<p>Chapter 8 content coming soon...</p>"},
+    {number: 9, title: "The Royal Knowledge and Royal Secret", content: "<p>Chapter 9 content coming soon...</p>"},
+    {number: 10, title: "The Opulence of the Absolute", content: "<p>Chapter 10 content coming soon...</p>"},
+    {number: 11, title: "The Vision of the Cosmic Form", content: "<p>Chapter 11 content coming soon...</p>"},
+    {number: 12, title: "The Path of Devotion", content: "<p>Chapter 12 content coming soon...</p>"},
+    {number: 13, title: "The Field and the Knower of the Field", content: "<p>Chapter 13 content coming soon...</p>"},
+    {number: 14, title: "The Three Gunas", content: "<p>Chapter 14 content coming soon...</p>"},
+    {number: 15, title: "The Supreme Person", content: "<p>Chapter 15 content coming soon...</p>"},
+    {number: 16, title: "The Divine and Demonic Natures", content: "<p>Chapter 16 content coming soon...</p>"},
+    {number: 17, title: "The Threefold Faith", content: "<p>Chapter 17 content coming soon...</p>"},
+    {number: 18, title: "Liberation Through Renunciation", content: "<p>Chapter 18 content coming soon...</p>"},
+  ];
+
+  // Toggle chapters visibility
+  gitaTitle.addEventListener('click', () => {
+    if (chaptersDiv.style.display === 'block') {
+      chaptersDiv.style.display = 'none';
+      gitaTitle.setAttribute('aria-pressed', 'false');
+    } else {
+      chaptersDiv.style.display = 'block';
+      gitaTitle.setAttribute('aria-pressed', 'true');
+    }
+  });
+
+  // Populate chapters list
+  chapters.forEach(ch => {
+    const btn = document.createElement('button');
+    btn.textContent = `Chapter ${ch.number}: ${ch.title}`;
+    btn.setAttribute('aria-label', `Open Chapter ${ch.number}: ${ch.title}`);
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      chaptersDiv.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      contentDiv.innerHTML = ch.content;
+      contentDiv.scrollIntoView({behavior: 'smooth'});
+    });
+    chaptersDiv.appendChild(btn);
+  });
+</script>
+
+</body>
+</html>
