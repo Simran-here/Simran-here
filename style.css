@@ -1,62 +1,131 @@
-/* Body & Background */
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Page Load Animation */
 body {
-    background-color: #f4f4f9;  /* soft modern background */
-    color: #2c3e50;            /* main text color */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #ffe0b2, #ffffff);
+  color: #333;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
 }
 
-/* Header */
-header {
-    background-color: #1e3a8a; /* deep blue header */
-    color: #ffffff;
+body.loaded {
+  opacity: 1;
 }
 
-header nav a {
-    color: #ffffff;
+/* Navigation */
+nav {
+  background: #ff5722;
+  padding: 15px 0;
+  text-align: center;
 }
 
-header nav a:hover {
-    color: #facc15;  /* bright yellow hover */
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 8px 15px;
+}
+
+nav a:hover,
+nav a.active {
+  background: #e64a19;
+  border-radius: 5px;
 }
 
 /* Hero Section */
-.hero {
-    background-color: #fffaed; /* soft yellow */
-    color: #1e3a8a;           /* dark heading text */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+  background: url('images/india-bg.jpg') no-repeat center center/cover;
+  color: white;
+  min-height: 90vh;
+  position: relative;
 }
 
-.hero h1 {
-    color: #d946ef;            /* vibrant pink/purple heading */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
 }
 
-.hero p {
-    color: #334155;            /* dark gray paragraph */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  animation: fadeUp 1s ease-in-out;
 }
 
-/* Option Cards */
-.option-card {
-    background-color: #ffffff;           /* card base */
-    border-left: 5px solid #3b82f6;     /* bright accent line */
-    color: #1e3a8a;
+.globe-icon {
+  font-size: 100px;
+  color: #ffc107;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
-.option-card:hover {
-    background: linear-gradient(135deg, #fde68a, #fbbf24); /* warm hover gradient */
+.globe-icon:hover {
+  transform: scale(1.1) rotate(10deg);
 }
 
-/* Card Headings and Text */
-.option-card h2 {
-    color: #f43f5e;   /* strong red/pink */
+.hero-content h1 {
+  margin: 20px 0 10px;
+  font-size: 2.8em;
 }
 
-.option-card p {
-    color: #334155;   /* dark gray text */
+.hero-content h1 span {
+  color: #ffeb3b;
 }
 
-/* Footer */
-footer {
-    background-color: #1e293b;  /* dark slate footer */
-    color: #f1f5f9;            /* light text */
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
 }
 
-/* Responsive adjustments remain the same */
+.hero-content button {
+  padding: 12px 25px;
+  font-size: 1em;
+  background-color: #ff9800;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.hero-content button:hover {
+  background-color: #f57c00;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2em;
+  }
+  .globe-icon {
+    font-size: 70px;
+  }
+}
