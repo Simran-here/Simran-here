@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Explore - Explore India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    /* NAVIGATION BAR */
+    nav {
+      background-color: #333;
+      padding: 12px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      color: #ff9800;
+      font-size: 1.6em;
+      font-weight: bold;
+      font-family: 'Georgia', serif;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1em;
+      transition: color 0.3s;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: #ff9800;
+      border-bottom: 2px solid #ff9800;
+    }
+
+    /* EXPLORE SECTION */
+    .explore-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .explore-section h2 {
+      font-size: 2.5em;
+      color: #e65100;
+      margin-bottom: 40px;
+    }
+
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .explore-card {
+      background-color: #fff3e0;
+      border-radius: 12px;
+      padding: 30px 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transform: scale(0.9);
+      opacity: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .explore-card.visible {
+      transform: scale(1);
+      opacity: 1;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .explore-card:hover {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+    }
+
+    .explore-card i {
+      font-size: 2.8em;
+      color: #ff9800;
+      margin-bottom: 12px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .explore-card:hover i {
+      color: #e65100;
+      transform: rotate(20deg) scale(1.2);
+    }
+
+    .explore-card h3 {
+      font-size: 1.2em;
+      margin: 0;
+      color: #444;
+      transition: color 0.3s ease;
+    }
+
+    .explore-card:hover h3 {
+      color: #000;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .nav-links {
+        margin-top: 10px;
+      }
+
+      .nav-links a {
+        display: block;
+        margin: 8px 0;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">Explore India</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="explore.html" class="active">Explore</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Explore India Section -->
+  <section class="explore-section">
+    <h2>Explore India</h2>
+    <div class="explore-grid">
+      <div class="explore-card"><i class="fas fa-tree"></i><h3>National Parks</h3></div>
+
+
+      <div class="explore-card"><i class="fas fa-water"></i><h3>Rivers</h3></div>
+      <div class="explore-card"><i class="fas fa-fire"></i><h3>Festivals</h3></div>
+      <div class="explore-card"><i class="fas fa-utensils"></i><h3>Food</h3></div>
+      <div class="explore-card"><i class="fas fa-person-dress"></i><h3>Dance</h3></div>
+      <div class="explore-card"><i class="fas fa-music"></i><h3>Music</h3></div>
+      <div class="explore-card"><i class="fas fa-paw"></i><h3>Wildlife Sanctuaries</h3></div>
+    </div>
+  </section>
+
+  <!-- JavaScript for animation -->
+  <script>
+    // Scroll reveal animation
+    const cards = document.querySelectorAll('.explore-card');
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+
+</body>
+</html>
