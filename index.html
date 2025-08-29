@@ -1,50 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Home | Flash India Fast</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Explore India - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="site-name">
-            <h1>Flash India Fast</h1>
-        </div>
-        <nav>
-            <ul class="navbar">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="education.html">Education</a></li>
-                <li><a href="spirituality.html">Spirituality</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="explore.html">Explore</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2>Welcome to Flash India Fast</h2>
-        <p>Where India’s heart beats — News, Culture, and Inspiration.</p>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <i class="fas fa-globe-asia globe-icon" id="globe-icon" title="Click to Explore"></i>
+      <h1>Welcome to <span>Explore India</span></h1>
+      <p>Discover India's beauty, diversity, and culture – one click at a time.</p>
+      <button onclick="goToExplore()">Start Exploring</button>
+    </div>
+  </section>
 
-    <!-- Colorful Feature Sections -->
-    <section class="features">
-        <div class="feature-box box1">
-            <h3>🎓 Education</h3>
-            <p>Catch up on the latest updates in India's education sector.</p>
-        </div>
-        <div class="feature-box box2">
-            <h3>🕉️ Spirituality</h3>
-            <p>Daily thoughts, meditation tips, and inner peace guides.</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Flash India Fast. Made with ❤️ for India.</p>
-    </footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
