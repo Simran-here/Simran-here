@@ -2,48 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us | Flash India First</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Contact - Explore India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="main-header">
-    <div class="container">
-      <h1 class="site-title">Flash India First</h1>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html" class="active">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="explore.html">Explore</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
 
-  <section class="contact-section">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <p>Have questions or want to share feedback? Reach out to us!</p>
-
-      <form class="contact-form" action="mailto:your-email@example.com" method="post" enctype="text/plain">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="Name" placeholder="Your full name" required />
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="Email" placeholder="your.email@example.com" required />
-
-        <label for="message">Message</label>
-        <textarea id="message" name="Message" rows="5" placeholder="Write your message here..." required></textarea>
-
-        <button type="submit" class="btn-main">Send Message</button>
-      </form>
-    </div>
+  <section class="hero-section" style="background-color: #fce4ec;">
+    <h1>Contact Us</h1>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p id="form-response"></p>
   </section>
 
-  <footer>
-    <p>© 2025 Flash India First. Built with ❤️ for learners across the nation.</p>
-  </footer>
-
+  <script src="script.js"></script>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin: auto;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+    button {
+      padding: 10px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #form-response {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
 </body>
 </html>
